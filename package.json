@@ -116,7 +116,7 @@
     "@popperjs/core": "^2.9.2",
     "classnames": "^2.2.6",
     "date-fns": "^2.24.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.8.1",
     "react-onclickoutside": "^6.12.2",
     "react-popper": "^2.3.0"
   },
@@ -127,7 +127,7 @@
     "sass-lint": "stylelint 'src/stylesheets/*.scss'",
     "lint": "run-p eslint flow sass-lint",
     "prettier": "prettier --write '**/*.{js,jsx}'",
-    "start": "yarn --cwd docs-site install && yarn --cwd docs-site start",
+    "start": "yarn --cwd docs-site start",
     "test": "cross-env NODE_ENV=test karma start karma.conf.js --single-run",
     "test:watch": "cross-env NODE_ENV=test karma start karma.conf.js --watch",
     "build": "cross-env NODE_ENV=production run-p build:** && run-p css:**",
