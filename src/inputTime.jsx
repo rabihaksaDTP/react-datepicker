@@ -144,7 +144,7 @@ export default class inputTime extends React.Component {
         </select>
         <select
           name="minutes"
-          className="Select-time"
+          className="Select-time "
           value={time.split(":")[1]}
           onChange={(ev) => {
             this.onTimeChange(ev.target.value, true, false, false);

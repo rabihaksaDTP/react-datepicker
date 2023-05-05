@@ -1019,19 +1019,7 @@ export default class Calendar extends React.Component {
           type="text"
           name="format"
           value={format + "-" + format}
-          style={{
-            display: "flex",
-            padding: "0px",
-            width: "140px",
-            marginRight: "-180px",
-            marginLeft: "18px",
-            marginBottom: "8px",
-            textAlign: "center",
-            fontSize: "13px",
-            padding: "10px 5px",
-            background: "#354f69",
-            color: "white",
-          }}
+          className="rangeTxtInput"
           readOnly
         />
         // <InputTime

@@ -790,3 +790,30 @@
 .AM-PM-Input:hover {
   cursor: pointer;
 }
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: #354f69;
+}
+.rangeTxtInput {
+  display: flex;
+  padding: 0px;
+  width: 140px;
+  margin-right: -180px;
+  margin-left: 23px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 13px;
+  padding: 10px 5px;
+  background: #354f69;
+  color: white;
+  box-shadow: none;
+}
+.rangeTxtInput:focus {
+  outline: none;
+  border-color: none;
+  box-shadow: none;
+}
