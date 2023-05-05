@@ -9,17 +9,36 @@ A simple and reusable Datepicker component for React ([Demo](https://reactdatepi
 
 ![](https://cloud.githubusercontent.com/assets/1412392/5339491/c40de124-7ee1-11e4-9f07-9276e2545f27.png)
 
+## Before working on this repository
+
+### for the app to build and start you need to downgrade npm to ver 16 for compatibility reasons
+
+install nvm-windows at install nvm-windows at https://github.com/coreybutler/nvm-windows/releases
+Open git bash terminal and insert these commands
+
+```js
+nvm install 16.0.0
+nvm use 16.0.0
+```
+
+after that
+
+```js
+yarn install
+yarn build-dev && yarn start
+```
+
 ## Installation
 
 The package can be installed via [npm](https://github.com/npm/cli):
 
-```
+```js
 npm install react-datepicker --save
 ```
 
 Or via [yarn](https://github.com/yarnpkg/yarn):
 
-```
+```js
 yarn add react-datepicker
 ```
 
