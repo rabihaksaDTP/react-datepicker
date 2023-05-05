@@ -133,6 +133,7 @@ export default class Calendar extends React.Component {
     onWeekSelect: PropTypes.func,
     showTimeSelect: PropTypes.bool,
     showTimeInput: PropTypes.bool,
+    showRangeTextInput: PropTypes.bool,
     showMonthYearPicker: PropTypes.bool,
     showFullMonthYearPicker: PropTypes.bool,
     showTwoColumnMonthYearPicker: PropTypes.bool,
@@ -160,6 +161,7 @@ export default class Calendar extends React.Component {
     selectsEnd: PropTypes.bool,
     selectsStart: PropTypes.bool,
     selectsRange: PropTypes.bool,
+    hasRangeTextInput: PropTypes.bool,
     selectsDisabledDaysInRange: PropTypes.bool,
     showMonthDropdown: PropTypes.bool,
     showPreviousMonths: PropTypes.bool,
@@ -987,7 +989,62 @@ export default class Calendar extends React.Component {
       );
     }
   };
+  renderRangeTextInput = () => {
+    const time = new Date(this.props.selected);
+    const timeValid = isValid(time) && Boolean(this.props.selected);
 
+    const timeString = timeValid
+      ? `${addZero(time.getHours())}:${addZero(time.getMinutes())}`
+      : "";
+    let months = (time.getMonth() + 1).toString();
+    let days = time.getDate().toString();
+    let year = time.getFullYear();
+    let format =
+      (months.length === 1 ? "0" + months : months) +
+      "/" +
+      (days.length === 1 ? "0" + days : days) +
+      "/" +
+      year;
+    console.log("format", format);
+    console.log("time", time);
+    console.log("months", months);
+    console.log("days", days);
+    console.log("year", year);
+    // console.log("format", (months.toString().length===1?"0"+ months.toString(): months.toString() )+"/"+(days.toString().length===1?"0"+ days.toString():days.toString() )+"/"+year);
+    console.log("ln", months.toString());
+    if (this.props.showRangeTextInput && !this.props.selectsRange) {
+      return (
+        // <p>hello world</p>
+        <input
+          type="text"
+          name="format"
+          value={format + "-" + format}
+          style={{
+            display: "flex",
+            padding: "0px",
+            width: "140px",
+            marginRight: "-180px",
+            marginLeft: "18px",
+            marginBottom: "8px",
+            textAlign: "center",
+            fontSize: "13px",
+            padding: "10px 5px",
+            background: "#354f69",
+            color: "white",
+          }}
+          readOnly
+        />
+        // <InputTime
+        //   date={time}    width: 200px;
+
+        //   timeString={timeString}
+        //   timeInputLabel={this.props.timeInputLabel}
+        //   onChange={this.props.onTimeChange}
+        //   customTimeInput={this.props.customTimeInput}
+        // />
+      );
+    }
+  };
   renderAriaLiveRegion = () => {
     const { startPeriod, endPeriod } = getYearsPeriod(
       this.state.date,
@@ -1049,6 +1106,8 @@ export default class Calendar extends React.Component {
           {this.renderTodayButton()}
           {this.renderTimeSection()}
           {this.renderInputTimeSection()}
+          {this.renderRangeTextInput()}
+
           {this.renderChildren()}
         </Container>
       </div>

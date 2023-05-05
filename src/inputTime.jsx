@@ -60,7 +60,6 @@ export default class inputTime extends React.Component {
     } else if (AMorPM) {
       let oldTime = timeString.split(":")[0];
       if (time === "PM") {
-        console.log("PM");
         const date = new Date();
         let date24 = this.props.date
           .toLocaleTimeString("en-US", { hour12: false })
@@ -69,23 +68,18 @@ export default class inputTime extends React.Component {
           parseInt(date24.split(":")[0]) !== 12
             ? parseInt(date24.split(":")[0]) + 12
             : 0;
-        console.log("date24", date24);
-        console.log("date12", date12);
+
         date.setHours(date12);
         date.setMinutes(timeString.split(":")[1]);
 
         this.props.onChange(date);
       }
       if (time === "AM") {
-        console.log("AM");
-
         const date = new Date();
         let date24 = this.props.date
           .toLocaleTimeString("en-US", { hour12: false })
           .split(":")[0];
         let date12 = parseInt(date24.split(":")[0]) - 12;
-        console.log("date24", date24);
-        console.log("date12", date12);
 
         date.setHours(date12);
         date.setMinutes(timeString.split(":")[1]);
@@ -112,8 +106,6 @@ export default class inputTime extends React.Component {
       }
       return minutesArrays;
     };
-    // console.log("mainDate",this.props.date.toLocaleTimeString("en-US",{hour12:false}));
-    // console.log("mainDate1",this.props.date.toLocaleTimeString().split(" ")[1]);
 
     return (
       <>
